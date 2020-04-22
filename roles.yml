@@ -1,0 +1,16 @@
+---
+- name: war-server configuration
+  hosts: war
+  become: yes
+ 
+  roles:
+   - webserver
+   - warserver
+
+- name: prod-server configuration
+  hosts: prod
+  become: yes
+  
+  roles:
+    - webserver
+    - prodserver

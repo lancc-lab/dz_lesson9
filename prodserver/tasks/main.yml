@@ -1,0 +1,6 @@
+---
+# tasks file for prodserver
+- name: Копируем с мастер на prod
+  copy:
+    src: /tmp/hello-1.0.war
+    dest: /var/lib/tomcat9/webapps
