@@ -1,6 +1,9 @@
 ---
 # tasks file for prodserver
-- name: Копируем с мастер на prod
-  copy:
-    src: /tmp/hello-1.0.war
-    dest: /var/lib/tomcat9/webapps
+- name: передать файл с war на prod
+  synchronize: 
+    src={{ sync_folder }}/hello-1.0.war 
+    dest={{ webapp_path }}
+  delegate_to: ec2-13-49-78-37.eu-north-1.compute.amazonaws.com
+  notify:
+    - restart tomcat9

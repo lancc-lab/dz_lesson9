@@ -1,2 +1,4 @@
 ---
-# defaults file for prodserver
+# copy war to tomcat
+webapp_path: /var/lib/tomcat9/webapps
+sync_folder: /home/lab1/target

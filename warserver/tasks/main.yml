@@ -5,25 +5,13 @@
   with_items:
    - maven
    - git
+
 - name: Clone repo
   git:
-    repo: https://github.com/boxfuse/boxfuse-sample-java-war-hello.git
-    dest: /home/lab1
-    version: master
+    repo: "{{ repo_link }}"
+    dest: "{{ dest_path }}"
 
 - name: maven package
   shell: mvn package
   args:
     chdir: /home/lab1
-
-- name: Copy war
-  copy:
-    src: /home/lab1/target/hello-1.0.war
-    dest: /var/lib/tomcat9/webapps
-    remote_src: yes
-
-- name: копируем с war на мастер
-  fetch:
-    src: /home/lab1/target/hello-1.0.war
-    dest: /tmp/   
-    flat: yes
